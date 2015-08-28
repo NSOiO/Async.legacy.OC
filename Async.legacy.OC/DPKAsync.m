@@ -1,13 +1,12 @@
 //
-//  DPKAsyncWrapper.m
+//  DPKAsync.m
 //  AsyncOCExample
 //
 //  Created by Deepak on 8/27/15.
 //  Copyright (c) 2015 deepak. All rights reserved.
 //
 
-#import "DPKAsyncWrapper.h"
-
+#import "DPKAsync.h"
 
 @interface DPKGCD : NSObject
 + (dispatch_queue_t)mainQueue;
@@ -18,18 +17,18 @@
 + (dispatch_queue_t)backgroundQueue;
 @end
 
-@interface DPKAsyncWrapper ()
+@interface DPKAsync ()
 @property (nonatomic, strong) dispatch_group_t dgroup;
 @property (nonatomic, assign,getter=isCancelled) BOOL cancelled;
 @property (nonatomic, assign) CGFloat afterSecondes;
 @end
 
-@interface DPKAsyncChainWrapper : DPKAsyncWrapper
+@interface DPKAsyncChain : DPKAsync
 @end
 
 #pragma mark -
 
-@implementation DPKAsyncWrapper
+@implementation DPKAsync
 
 - (instancetype)init
 {
@@ -45,16 +44,16 @@
 #pragma mark - Public Method
 
 #define GenerateAsyncMethod(name) \
-- (DPKAsyncWrapper *(^)(dispatch_block_t block))name \
+- (DPKAsync *(^)(dispatch_block_t block))name \
 { \
-    return ^DPKAsyncWrapper* (dispatch_block_t block){ \
+    return ^DPKAsync* (dispatch_block_t block){ \
         return [self async:block inQueue:[DPKGCD name##Queue] after:self.afterSecondes]; \
     }; \
 }
 #define GenerateCustomQueueAsyncMethod(name) \
-- (DPKAsyncWrapper *(^)(dispatch_queue_t name, dispatch_block_t block))name \
+- (DPKAsync *(^)(dispatch_queue_t name, dispatch_block_t block))name \
 { \
-    return ^DPKAsyncWrapper* (dispatch_queue_t name, dispatch_block_t block) { \
+    return ^DPKAsync* (dispatch_queue_t name, dispatch_block_t block) { \
         return [self async:block inQueue:name after:self.afterSecondes]; \
     }; \
 }
@@ -66,8 +65,8 @@ GenerateAsyncMethod(utility)
 GenerateAsyncMethod(background)
 GenerateCustomQueueAsyncMethod(customQueue)
 
-- (DPKAsyncWrapper * (^)(CGFloat after))after {
-    return ^DPKAsyncWrapper* (CGFloat after) {
+- (DPKAsync * (^)(CGFloat after))after {
+    return ^DPKAsync* (CGFloat after) {
         self.afterSecondes = after;
         return self;
     };
@@ -96,9 +95,9 @@ GenerateCustomQueueAsyncMethod(customQueue)
     return time;
 }
 
-- (DPKAsyncWrapper *)async:(dispatch_block_t) block inQueue:(dispatch_queue_t)queue after:(CGFloat)seconds
+- (DPKAsync *)async:(dispatch_block_t) block inQueue:(dispatch_queue_t)queue after:(CGFloat)seconds
 {
-    DPKAsyncWrapper  *wrapper = [DPKAsyncChainWrapper new];
+    DPKAsync  *wrapper = [DPKAsyncChain new];
     dispatch_time_t time = [self timeFromNowAfterSeconds:seconds];
     
     dispatch_group_enter(wrapper.dgroup);
@@ -125,11 +124,13 @@ GenerateCustomQueueAsyncMethod(customQueue)
 @end
 
 
-@implementation DPKAsyncChainWrapper
+@implementation DPKAsyncChain
 
-- (DPKAsyncWrapper *)async:(dispatch_block_t) block inQueue:(dispatch_queue_t)queue after:(CGFloat)seconds
+#pragma mark - Override Method
+
+- (DPKAsync *)async:(dispatch_block_t) block inQueue:(dispatch_queue_t)queue after:(CGFloat)seconds
 {
-    DPKAsyncWrapper  *wrapper = [[DPKAsyncChainWrapper alloc] init];
+    DPKAsync  *wrapper = [[DPKAsyncChain alloc] init];
     
     dispatch_group_enter(wrapper.dgroup);
     dispatch_group_notify(self.dgroup, queue, ^{

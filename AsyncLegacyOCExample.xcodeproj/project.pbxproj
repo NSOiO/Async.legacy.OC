@@ -14,7 +14,7 @@
 		00E3C62E1B907719009B18B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00E3C62D1B907719009B18B1 /* Images.xcassets */; };
 		00E3C6311B907719009B18B1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E3C62F1B907719009B18B1 /* LaunchScreen.xib */; };
 		00E3C63D1B907719009B18B1 /* AsyncLegacyOCExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3C63C1B907719009B18B1 /* AsyncLegacyOCExampleTests.m */; };
-		00E3C6491B907732009B18B1 /* DPKAsyncWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3C6481B907732009B18B1 /* DPKAsyncWrapper.m */; };
+		00E3C6491B907732009B18B1 /* DPKAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E3C6481B907732009B18B1 /* DPKAsync.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 		00E3C6361B907719009B18B1 /* AsyncLegacyOCExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncLegacyOCExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E3C63B1B907719009B18B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E3C63C1B907719009B18B1 /* AsyncLegacyOCExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncLegacyOCExampleTests.m; sourceTree = "<group>"; };
-		00E3C6471B907732009B18B1 /* DPKAsyncWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPKAsyncWrapper.h; sourceTree = "<group>"; };
-		00E3C6481B907732009B18B1 /* DPKAsyncWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPKAsyncWrapper.m; sourceTree = "<group>"; };
+		00E3C6471B907732009B18B1 /* DPKAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPKAsync.h; sourceTree = "<group>"; };
+		00E3C6481B907732009B18B1 /* DPKAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPKAsync.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +126,8 @@
 		00E3C6461B907732009B18B1 /* Async.legacy.OC */ = {
 			isa = PBXGroup;
 			children = (
-				00E3C6471B907732009B18B1 /* DPKAsyncWrapper.h */,
-				00E3C6481B907732009B18B1 /* DPKAsyncWrapper.m */,
+				00E3C6471B907732009B18B1 /* DPKAsync.h */,
+				00E3C6481B907732009B18B1 /* DPKAsync.m */,
 			);
 			path = Async.legacy.OC;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 			files = (
 				00E3C6291B907719009B18B1 /* ViewController.m in Sources */,
 				00E3C6261B907719009B18B1 /* AppDelegate.m in Sources */,
-				00E3C6491B907732009B18B1 /* DPKAsyncWrapper.m in Sources */,
+				00E3C6491B907732009B18B1 /* DPKAsync.m in Sources */,
 				00E3C6231B907719009B18B1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +434,7 @@
 				00E3C6421B907719009B18B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00E3C6431B907719009B18B1 /* Build configuration list for PBXNativeTarget "AsyncLegacyOCExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +443,7 @@
 				00E3C6451B907719009B18B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
