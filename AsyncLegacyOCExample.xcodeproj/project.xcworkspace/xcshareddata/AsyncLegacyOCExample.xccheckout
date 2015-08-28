@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>794D83D6-3721-494D-AC3E-A5657A2580F9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AsyncLegacyOCExample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B7F664815C7C31FD2FFD713043EF112C0F6C1C4B</key>
+		<string>https://github.com/NSOiO/Async.legacy.OC</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AsyncLegacyOCExample.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B7F664815C7C31FD2FFD713043EF112C0F6C1C4B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/NSOiO/Async.legacy.OC</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B7F664815C7C31FD2FFD713043EF112C0F6C1C4B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B7F664815C7C31FD2FFD713043EF112C0F6C1C4B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Async.legacy.OC</string>
+		</dict>
+	</array>
+</dict>
+</plist>
