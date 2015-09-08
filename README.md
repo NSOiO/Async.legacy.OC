@@ -21,6 +21,30 @@ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
 });
 ```
 
+## Things you can do
+
+Supports the modern queue classes:
+```obj-c
+Async.main (^{})
+Async.userInteractive (^{})
+Async.userInitiated (^{})
+Async.utility (^{})
+Async.background (^{})
+```
+
+Chain as many blocks as you want:
+```obj-c
+Async.userInitiated (^{
+    // 1
+}).main (^{
+    // 2
+}).background (^{
+    // 3
+}).main (^{
+    // 4
+})
+```
+
 Instend of `dispatch_after
 ```obj-c
 // After
